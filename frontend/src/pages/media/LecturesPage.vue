@@ -1,20 +1,5 @@
 <template>
   <q-page class="q-pa-md">
-    <!-- mc-todo: add schedule speaking engagement -->
-
-    <!-- <q-toolbar class="shadow-1">
-      <q-toolbar-title>
-        Schedule Speaking Engagement with Carol
-      </q-toolbar-title>
-      <q-btn
-        icon="event"
-        round
-        color="primary"
-        class="text-black"
-        to="/schedule-speaking-engagement"
-      ></q-btn>
-    </q-toolbar> -->
-
     <q-table
       :columns="columns"
       :rows="store.lectures"
@@ -28,64 +13,71 @@
     >
       <template #item="{row}">
         <div class="q-table__grid-item col-12 col-md-6 col-lg-3">
-          <div class="q-table__grid-item-card q-table__card relative">
-            <!-- Image in upper-right corner -->
-            <div
-              v-if="row.image && Screen.gt.sm"
-              class="absolute-top-right q-pa-sm"
-            >
-              <q-img
-                :src="row.image"
-                class="q-table__grid-item-image q-ma-sm cursor-pointer"
-                style="width: 80px; height: 80px;"
-                fit="cover"
-                @click="openImage(row)"
-              />
-            </div>
-
-            <!-- Main content area -->
-            <div class="col">
-              <div class="q-table__grid-item-row">
-                <div class="q-table__grid-item-title">Name</div>
-                <div
-                  class="q-table__grid-item-value text-h6"
-                  v-html="row.title"
-                ></div>
-              </div>
-              <div class="q-table__grid-item-row">
-                <div class="q-table__grid-item-title">Date</div>
-                <div class="q-table__grid-item-value text-subtitle1">
-                  {{ row.date }}
+          <div
+            class="q-table__grid-item-card q-table__card cursor-pointer column"
+            style="height: 100%;"
+          >
+            <div class="row no-wrap items-start">
+              <!-- Main content area -->
+              <div class="col">
+                <div class="q-table__grid-item-row">
+                  <div class="q-table__grid-item-title">Name</div>
+                  <div
+                    class="q-table__grid-item-value text-h6"
+                    v-html="row.title"
+                  ></div>
+                </div>
+                <div class="q-table__grid-item-row">
+                  <div class="q-table__grid-item-title">Date</div>
+                  <div class="q-table__grid-item-value text-subtitle1">
+                    {{ row.date }}
+                  </div>
                 </div>
               </div>
+
+              <!-- Image on the right -->
+              <div v-if="row.image && Screen.gt.sm" class="col-auto q-pl-sm">
+                <q-img
+                  :src="row.image"
+                  class="q-table__grid-item-image"
+                  style="width: 80px; height: 80px;"
+                  fit="cover"
+                  @click="openImage(row)"
+                />
+              </div>
             </div>
 
+            <!-- Spacer to push buttons to bottom -->
+            <div class="col"></div>
+
             <!-- Full width separator and buttons -->
-            <q-separator class="full-width"></q-separator>
-            <div class="row full-width">
-              <div class="col text-center">
-                <q-btn
-                  :disabled="!!!row.video"
-                  label="Video"
-                  color="primary"
-                  class="text-black"
-                  @click="
-                    store.lecture = {
-                      ...row,
-                      dialogContents: 'video',
-                      visible: true,
-                    }
-                  "
-                ></q-btn>
-              </div>
-              <div class="col text-center">
-                <q-btn
-                  :disabled="row?.photos?.length == 0"
-                  label="Photos"
-                  color="primary"
-                  class="text-black"
-                  @click="openPhotos(row)"
-                ></q-btn>
+            <div>
+              <q-separator class="full-width"></q-separator>
+              <div class="row full-width">
+                <div class="col text-center">
+                  <q-btn
+                    :disabled="!!!row.video"
+                    label="Video"
+                    color="primary"
+                    class="text-black"
+                    @click="
+                      store.lecture = {
+                        ...row,
+                        dialogContents: 'video',
+                        visible: true,
+                      }
+                    "
+                  ></q-btn>
+                </div>
+                <div class="col text-center">
+                  <q-btn
+                    :disabled="row?.photos?.length == 0"
+                    label="Photos"
+                    color="primary"
+                    class="text-black"
+                    @click="openPhotos(row)"
+                  ></q-btn>
+                </div>
               </div>
             </div>
           </div>
