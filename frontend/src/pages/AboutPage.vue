@@ -81,7 +81,10 @@
           You can contact her <router-link to="/contact">here</router-link>.
         </div>
 
-        <q-img src="images/books-with-medal.jpg" class="q-my-sm"></q-img>
+        <q-img
+          src="/storage/images/books-with-medal.jpg"
+          class="q-my-sm"
+        ></q-img>
       </div>
     </div>
 
