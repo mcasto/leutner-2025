@@ -74,6 +74,10 @@ export default defineConfig((/* ctx */) => {
           target: "http://leutner.test",
           changeOrigin: true,
         },
+        "/storage": {
+          target: "http://leutner.test",
+          changeOrigin: true,
+        },
       },
     },
 

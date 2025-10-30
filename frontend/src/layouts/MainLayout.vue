@@ -26,7 +26,7 @@
           target="_blank"
         >
           <q-img
-            src="/images/available-at-amazon.svg"
+            src="/storage/images/available-at-amazon.svg"
             width="5rem"
             fit="contain"
           ></q-img>

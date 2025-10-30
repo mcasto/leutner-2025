@@ -2,7 +2,7 @@
   <q-page>
     <q-toolbar class="bg-black text-white justify-between">
       <div :style="`height: ${toolbarHeight}; width: ${toolbarHeight}`">
-        <q-img src="/images/globe.png" fit="contain"></q-img>
+        <q-img src="/storage/images/globe.png" fit="contain"></q-img>
       </div>
       <div class="banner-text text-h4">
         Carol E. Leutner
@@ -56,7 +56,7 @@
         <div class="row items-center">
           <div class="col-4">
             <q-img
-              src="/images/winner-sticker.png"
+              src="/storage/images/winner-sticker.png"
               :width="Screen.gt.sm ? '132px' : '100px'"
             ></q-img>
           </div>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="col-12 col-sm-4 q-pa-md">
-        <q-img src="/images/carol.jpg"></q-img>
+        <q-img src="/storage/images/carol.jpg"></q-img>
       </div>
     </div>
   </q-page>

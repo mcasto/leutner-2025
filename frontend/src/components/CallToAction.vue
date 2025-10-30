@@ -7,7 +7,7 @@
         </q-card-section>
         <q-card-section class="flex justify-end">
           <q-img
-            src="/images/available-at-amazon.svg"
+            src="/storage/images/available-at-amazon.svg"
             width="10vw"
             fit="contain"
           ></q-img>

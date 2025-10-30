@@ -42,7 +42,7 @@ class Lecture extends Model
                 return [
                     'value' => uniqid(),
                     'label' => $this->idx++,
-                    'src' => "/{$filename}"
+                    'src' => "/storage/{$filename}"
                 ];
             })
             ->values();

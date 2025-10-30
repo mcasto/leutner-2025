@@ -1,6 +1,15 @@
 <template>
   <q-page>
     <div class="q-mx-md">
+      <div class="flex justify-end q-mt-sm">
+        <q-btn
+          icon="mdi-arrow-left"
+          color="primary"
+          class="text-black"
+          @click="store.router.go(-1)"
+        ></q-btn>
+      </div>
+
       <div class="text-h6">
         {{ store.article.title }}
       </div>
@@ -20,7 +29,7 @@
 </template>
 
 <script setup>
-  // store
-  import { useStore } from "stores/store";
-  const store = useStore();
+// store
+import { useStore } from "stores/store";
+const store = useStore();
 </script>

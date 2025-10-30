@@ -13,7 +13,7 @@
       <q-btn
         class="bg-primary"
         label="Download PDF"
-        href="/downloadables/discussion-questions.pdf"
+        href="/storage/downloadables/discussion-questions.pdf"
         target="_blank"
       ></q-btn>
     </div>

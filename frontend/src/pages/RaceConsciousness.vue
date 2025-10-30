@@ -3,7 +3,7 @@
     <div class="row q-mt-md q-mx-md">
       <div class="column col-12 col-md-6 justify-start items-center">
         <q-img
-          src="/images/cover-with-spine-3d.png"
+          src="/storage/images/cover-with-spine-3d.png"
           class="cover-with-spine"
           fit="contain"
         ></q-img>
@@ -40,7 +40,7 @@
         <div class="row items-center">
           <div class="col-4">
             <q-img
-              src="/images/winner-sticker.png"
+              src="/storage/images/winner-sticker.png"
               :width="Screen.gt.sm ? '132px' : '100px'"
             ></q-img>
           </div>

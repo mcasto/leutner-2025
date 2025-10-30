@@ -4,7 +4,7 @@
       <div class="col-12 col-md-6">
         <div class="column flex flex-center justify-space-around">
           <q-img
-            src="/images/carol-with-medal.jpg"
+            src="/storage/images/carol-with-medal.jpg"
             :width="Screen.gt.sm ? '35vw' : ''"
             :height="Screen.lt.md ? '60vh' : ''"
             :position="Screen.lt.md ? 'top' : ''"
@@ -117,11 +117,11 @@ export default {
   data: () => ({
     bottomImages: [
       {
-        src: "/images/cuenca-historic.jpeg",
+        src: "/storage/images/cuenca-historic.jpeg",
         caption: "Historic Center, Cuenca",
       },
       {
-        src: "/images/inca-terraces.jpg",
+        src: "/storage/images/inca-terraces.jpg",
         caption: "Inca Terraces, Pumapungo, Cuenca",
       },
     ],

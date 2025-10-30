@@ -3,7 +3,7 @@
     <div class="row q-mt-md q-mx-md">
       <div class="column col-12 col-md-6 justify-start items-center">
         <q-img
-          src="/images/paradigm-cover.png"
+          src="/storage/images/paradigm-cover.png"
           class="cover-with-spine"
           fit="contain"
           width="80%"
