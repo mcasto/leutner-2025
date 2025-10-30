@@ -1,0 +1,14 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Castoware\\": "Castoware/"
+    }
+  },
+  "require": {
+    "altorouter/altorouter": "^2.0",
+    "dibi/dibi": "^5.0",
+    "mailchimp/marketing": "^3.0",
+    "sendgrid/sendgrid": "^8.1",
+    "fastvolt/markdown": "^0.2.1"
+  }
+}

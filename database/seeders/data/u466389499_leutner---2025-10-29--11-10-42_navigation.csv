@@ -1,0 +1,13 @@
+"_id","label","path","parent","visible","sort_order"
+"about","About","/about",NULL,1,9
+"articles","Articles","/media/articles","media",1,6
+"books","Books",NULL,NULL,1,2
+"contact","Contact","/contact",NULL,1,10
+"forthcoming-publications","Forthcoming Publications","/media/forthcoming-publications","media",0,5
+"home","Home","/",NULL,1,1
+"learning-tools","Learning Tools","/media/learning-tools","media",1,8
+"lectures","Lectures","/media/lectures","media",1,7
+"media","Media",NULL,NULL,1,3
+"pardigm-shift","Pardigm Shift","/books/paradigm-shift","books",1,12
+"press-releases","Press Releases","/media/press-releases","media",1,4
+"race-consciousness","Race Consciousness","/books/race-consciousness","books",1,11

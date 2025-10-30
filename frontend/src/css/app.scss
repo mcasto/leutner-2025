@@ -1,0 +1,98 @@
+// app global css in SCSS form
+
+@font-face {
+  font-family: "Questa";
+  /* Choose a name for your custom font */
+  src: url("/questa.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Questa Sans";
+  /* Choose a name for your custom font */
+  src: url("/questa-sans.otf") format("opentype");
+}
+
+body {
+  font-family: "Questa Sans", sans-serif;
+}
+
+.banner-text {
+  font-family: "Questa";
+}
+
+.watermark {
+  background-image: url("/images/globe-watermark.png");
+  background-repeat: no-repeat;
+  background-position: center center !important;
+}
+
+.page-background {
+  background-color: $page-background;
+}
+
+.media-toolbar {
+  border-radius: 0px !important;
+}
+
+.book-page {
+  .cover-with-spine {
+    max-height: 85vh;
+  }
+
+  .book-info {
+    max-width: 410px;
+  }
+
+  .review {
+    margin-bottom: 0.25rem;
+    font-style: italic;
+  }
+
+  .attribution {
+    margin-left: 3rem;
+  }
+}
+
+.float-clear {
+  clear: both;
+  height: 1rem;
+}
+
+.article-body {
+  figure {
+    margin: 1rem 1rem 0 1rem;
+    max-width: 30rem;
+    img {
+      max-width: 30rem;
+    }
+    figcaption {
+      background-color: lightgrey;
+      padding: 0 0.3rem 0 0.3rem;
+    }
+  }
+}
+
+.special-table {
+  th {
+    text-align: left;
+  }
+  td {
+    text-align: left;
+  }
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.large-text {
+  font-size: large;
+}
+
+.call-to-action-link {
+  text-decoration: none;
+}
+
+.press-release {
+  font-size: large;
+}

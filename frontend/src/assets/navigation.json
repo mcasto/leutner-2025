@@ -1,0 +1,126 @@
+[
+  {
+    "id": "6f6793d4-f40f-46c8-a371-c5c54ca172df",
+    "label": "Home",
+    "path": "/",
+    "children": []
+  },
+  {
+    "id": "194787b4-4883-4cad-bc7b-93cdb7ab35f3",
+    "label": "Race Consciousness",
+    "path": "/race-consciousness",
+    "children": []
+  },
+  {
+    "id": "47031d42-acd9-4ab3-8930-4f4b1bcd29d5",
+    "label": "Media",
+    "children": [
+      {
+        "id": "7d4354e5-58d6-46d4-b809-fa9d62a57a0d",
+        "label": "Press Releases",
+        "path": "/media/press-releases",
+        "children": []
+      },
+      {
+        "id": "9f8931f6-606f-48f6-949e-c286fe925808",
+        "label": "Forthcoming Publications",
+        "path": "/media/forthcoming-publications",
+        "children": []
+      },
+      {
+        "id": "cb0f3acc-e6a5-40f1-988e-689b82c0d16b",
+        "label": "Articles",
+        "path": "",
+        "children": [
+          {
+            "id": "9d827b5e-683b-47a5-82a5-a702e3aad6c8",
+            "label": "Race",
+            "path": "/media/articles/race",
+            "children": []
+          },
+          {
+            "id": "c0d515c3-e114-4eda-a8fd-ad4d56a8a975",
+            "label": "Economics",
+            "path": "/media/articles/economics",
+            "children": []
+          },
+          {
+            "id": "f64b38d2-21d3-468a-9399-7ac30dd0b1b2",
+            "label": "Culture",
+            "path": "/media/articles/culture",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "f39b19d4-7999-49fb-aaaf-b51dd9d55664",
+        "label": "Lectures",
+        "path": "",
+        "children": [
+          {
+            "id": "e3c54589-c243-4a15-b300-977ce085cc0d",
+            "label": "Book Launch (Race Consciousness&mdash;2023)",
+            "path": "",
+            "children": [
+              {
+                "id": "1f620e64-44c2-4148-93d3-500eaff7b303",
+                "label": "Video Presentation--Cuenca, A Good Place to Write",
+                "path": "/media/lectures/book-launch-race-consciousness-2023/video/cuenca-a-good-place-to-write",
+                "children": []
+              },
+              {
+                "id": "d6ebead1-c1d5-4ba9-9cfb-14b3ba22c266",
+                "label": "Photo Gallery",
+                "path": "/media/lectures/book-launch-race-consciousness-2023/photos",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "fb0e1508-18c3-40c9-b782-c0ecc2e4a490",
+            "label": "Schedule Speaking Engagements",
+            "path": "/lectures/schedule-speaking-engagement",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "b1f93064-4580-4536-8266-12b8d9dbeb26",
+        "label": "Learning Tools",
+        "path": "",
+        "children": [
+          {
+            "id": "2a580bc5-4cf2-412b-a79a-09d0676014ea",
+            "label": "Discussion Questions",
+            "path": "/learning-tools/discussion-questions",
+            "children": []
+          },
+          {
+            "id": "770e5619-58b4-437e-9ddd-6026c1dabc93",
+            "label": "Video&mdash;How to Use <em>Race Consciousness</em> for Teaching and Training",
+            "path": "/learning-tools/video-use-race-consciousness-for-teaching-training",
+            "children": []
+          },
+          {
+            "id": "6c37ee6d-9f6f-41ac-b2f7-be39bd5d2495",
+            "label": "<em>Race Consciousness</em> Workbook",
+            "path": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14a39a13-0168-4826-a79c-8e08d84c3501",
+    "label": "About",
+    "path": "/about",
+    "children": []
+  },
+  {
+    "id": "b3bd1873-fa83-474b-bb81-5c261ad2ce8b",
+    "label": "Contact",
+    "path": "/contact",
+    "children": []
+  }
+]
