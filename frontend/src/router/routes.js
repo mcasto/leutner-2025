@@ -75,7 +75,7 @@ const routes = [
           },
           {
             path: "lectures",
-            name: "Lectures",
+            name: "Events",
             component: () => import("pages/media/LecturesPage.vue"),
             beforeEnter: async (to, from, next) => {
               await useStore().getLectures();

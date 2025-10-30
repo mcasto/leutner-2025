@@ -28,22 +28,41 @@
     >
       <template #item="{row}">
         <div class="q-table__grid-item col-12 col-md-6 col-lg-3">
-          <div class="q-table__grid-item-card q-table__card cursor-pointer">
-            <div class="q-table__grid-item-row">
-              <div class="q-table__grid-item-title">Name</div>
-              <div
-                class="q-table__grid-item-value text-h6"
-                v-html="row.title"
-              ></div>
+          <div class="q-table__grid-item-card q-table__card relative">
+            <!-- Image in upper-right corner -->
+            <div
+              v-if="row.image && Screen.gt.sm"
+              class="absolute-top-right q-pa-sm"
+            >
+              <q-img
+                :src="row.image"
+                class="q-table__grid-item-image q-ma-sm cursor-pointer"
+                style="width: 80px; height: 80px;"
+                fit="cover"
+                @click="openImage(row)"
+              />
             </div>
-            <div class="q-table__grid-item-row">
-              <div class="q-table__grid-item-title">Date</div>
-              <div class="q-table__grid-item-value text-subtitle1">
-                {{ row.date }}
+
+            <!-- Main content area -->
+            <div class="col">
+              <div class="q-table__grid-item-row">
+                <div class="q-table__grid-item-title">Name</div>
+                <div
+                  class="q-table__grid-item-value text-h6"
+                  v-html="row.title"
+                ></div>
+              </div>
+              <div class="q-table__grid-item-row">
+                <div class="q-table__grid-item-title">Date</div>
+                <div class="q-table__grid-item-value text-subtitle1">
+                  {{ row.date }}
+                </div>
               </div>
             </div>
-            <q-separator></q-separator>
-            <div class="row">
+
+            <!-- Full width separator and buttons -->
+            <q-separator class="full-width"></q-separator>
+            <div class="row full-width">
               <div class="col text-center">
                 <q-btn
                   :disabled="!!!row.video"
@@ -74,16 +93,29 @@
       </template>
     </q-table>
     <lecture-dialog v-model="store.lecture"></lecture-dialog>
+    <event-image
+      v-model="eventImage.visible"
+      :row="eventImage.row"
+    ></event-image>
   </q-page>
 </template>
 
 <script setup>
 // store
 import { useStore } from "stores/store";
+import { Screen } from "quasar";
+import EventImage from "src/components/EventImage.vue";
+
 const store = useStore();
 
 // components
 import LectureDialog from "src/components/LectureDialog.vue";
+import { ref } from "vue";
+
+const eventImage = ref({
+  visible: false,
+  row: null,
+});
 
 // data
 const columns = [
@@ -106,5 +138,12 @@ const openPhotos = (row) => {
   };
 
   store.lecture = payload;
+};
+
+const openImage = (row) => {
+  eventImage.value = {
+    visible: true,
+    row,
+  };
 };
 </script>

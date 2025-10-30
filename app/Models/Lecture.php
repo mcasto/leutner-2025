@@ -27,6 +27,11 @@ class Lecture extends Model
 
     public function loadPhotos()
     {
+        $eventImage = "event-images/{$this->_id}.jpeg";
+        $exists = Storage::disk('public')->exists($eventImage);
+
+        $this->attributes['image'] = $exists ? "/storage/{$eventImage}" : null;
+
         $photoPath = "photos/{$this->_id}";
 
         $this->attributes['meta'] = Storage::disk('public')
@@ -50,5 +55,8 @@ class Lecture extends Model
         $this->attributes['photos'] = $photos;
 
         $this->attributes['date'] = $this->date;
+
+        logger()->info("Final image attribute: " . ($this->attributes['image'] ?? 'NULL'));
+        logger()->info("=== End Debug ===");
     }
 }
