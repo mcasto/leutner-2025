@@ -56,7 +56,7 @@
               <div class="row full-width">
                 <div class="col text-center">
                   <q-btn
-                    :disabled="!!!row.video"
+                    v-if="!!row.video"
                     label="Video"
                     color="primary"
                     class="text-black"
