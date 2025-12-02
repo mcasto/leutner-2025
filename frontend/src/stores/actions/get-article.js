@@ -7,8 +7,14 @@ export default (id) => {
   const store = useStore();
   return callApi({ path: `/get-article/${id}`, method: "get" }).then(
     (article) => {
-      article.contents = md.render(article.contents);
-      store.article = article;
+      // article.contents = md.render(article.contents);
+      // store.article = article;
+
+      if (!article.contents) {
+        // assume it's a link to PDF
+        window.open(article.url);
+        return "/media/articles";
+      }
     }
   );
 };

@@ -116,9 +116,8 @@ const routes = [
         path: "view-article/:id",
         name: "View Article",
         component: () => import("pages/media/ArticlePage.vue"),
-        beforeEnter: async (to, from, next) => {
-          await useStore().getArticle(to.params.id);
-          next();
+        beforeEnter: async (to) => {
+          return await useStore().getArticle(to.params.id);
         },
       },
 
