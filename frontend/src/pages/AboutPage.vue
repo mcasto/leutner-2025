@@ -93,18 +93,47 @@
     </div>
 
     <div class="q-mt-sm row">
-      <div
-        class="col-12 col-md-6 text-center q-pa-sm"
-        v-for="image in bottomImages"
-        :key="image.src"
-      >
-        <q-img :src="image.src" fit="cover" height="500px">
-          <div
-            style="position: absolute; bottom: 0;"
-            class="full-width text-center"
-            v-html="image.caption"
-          ></div>
-        </q-img>
+      <div class="col-12 col-md-6 text-center q-pa-sm">
+        <div
+          class="video-container"
+          :style="{
+            maxWidth: Screen.gt.sm ? '35vw' : '100%',
+            margin: '0 auto',
+          }"
+        >
+          <q-card flat bordered class="video-card">
+            <q-card-section class="q-pa-md">
+              <video
+                width="572"
+                height="480"
+                controls
+                preload="metadata"
+                :style="{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: '8px',
+                }"
+              >
+                <source
+                  src="/storage/videos/hilary-interview.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </q-card-section>
+
+            <q-card-section class="q-pt-none">
+              <div
+                class="text-caption text-italic text-grey-8 text-left q-pl-sm"
+                style="border-left: 4px solid #1976d2; padding-left: 12px;"
+              >
+                A sister-to-sister tribute by Caroline Anderson on Disability
+                Awareness Day 2025
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </div>
   </q-page>
