@@ -12,15 +12,33 @@
         v-html="image.caption"
       ></div>
     </q-img>
+
+    <div
+      class="flex items-center text-blue cursor-pointer"
+      @click="videoDialogModel = true"
+    >
+      <q-icon name="mdi-video" class="q-mr-sm" size="sm"></q-icon>
+      <div class="text-underline" style="font-size: 1rem;">
+        A sister-to-sister tribute by Caroline Anderson on Disability Awareness
+        Day 2025
+      </div>
+    </div>
+    <caroline-video-dialog v-model="videoDialogModel"></caroline-video-dialog>
   </div>
 </template>
 
 <script>
 import { Screen } from "quasar";
+import CarolineVideoDialog from "src/components/CarolineVideoDialog.vue";
 
 export default {
   name: "AboutPhotos",
+  components: {
+    CarolineVideoDialog,
+  },
   data: () => ({
+    videoDialogModel: false,
+
     sideImages: [
       {
         src: "/storage/images/family.jpg",

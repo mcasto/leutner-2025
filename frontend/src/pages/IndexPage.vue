@@ -4,7 +4,7 @@
       <div :style="`height: ${toolbarHeight}; width: ${toolbarHeight}`">
         <q-img src="/storage/images/globe.png" fit="contain"></q-img>
       </div>
-      <div class="banner-text text-h4">
+      <div class="banner-text text-h3">
         Carol E. Leutner
       </div>
       <div>

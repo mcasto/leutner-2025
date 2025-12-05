@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="col q-pa-md">
+      <div class="col q-pa-md" style="display: flex; flex-direction: column;">
         <div class="text-h6">
           About The Author
         </div>
@@ -84,6 +84,8 @@
         <q-img
           src="/storage/images/books-with-medal.jpg"
           class="q-my-sm"
+          style="flex: 1; min-height: 300px;"
+          fit="cover"
         ></q-img>
       </div>
     </div>
