@@ -9,6 +9,16 @@
           width="80%"
           style="max-height: 700px;"
         ></q-img>
+
+        <a
+          href="/storage/downloadables/paradigm-additional-resources.pdf"
+          target="_blank"
+          class="q-mt-lg text-blue-10"
+          style="font-size: 1.5rem;"
+        >
+          <q-icon name="mdi-file-pdf-box" class="q-mr-sm" size="sm"></q-icon>
+          Additional Resources (PDF)
+        </a>
       </div>
       <div class="col-12 col-md-6">
         <div class="book-info q-mt-md">
