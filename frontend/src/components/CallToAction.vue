@@ -5,11 +5,12 @@
         <q-card-section>
           <div class="text-h6 text-black" v-html="title"></div>
         </q-card-section>
-        <q-card-section class="flex justify-between">
+        <q-card-section class="flex justify-end">
           <q-img
             src="/storage/images/paradigm-audible.png"
             width="10vw"
             fit="contain"
+            class="q-mr-md"
           ></q-img>
           <q-img
             src="/storage/images/available-at-amazon.svg"

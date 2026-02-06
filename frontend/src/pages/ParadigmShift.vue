@@ -17,7 +17,7 @@
           style="font-size: 1.5rem;"
         >
           <q-icon name="mdi-file-pdf-box" class="q-mr-sm" size="sm"></q-icon>
-          Additional Resources (PDF)
+          Additional Resources for Audiobook
         </a>
       </div>
       <div class="col-12 col-md-6">
