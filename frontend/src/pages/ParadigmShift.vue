@@ -29,7 +29,7 @@
           <div class="large-text">
             <p>
               Carol E. Leutner's
-              <span class="text-italic"
+              <span class="text-italic text-bold"
                 >21st Century Paradigm Shift: What It Is and How to Thrive In
                 It</span
               >
