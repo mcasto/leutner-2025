@@ -55,8 +55,5 @@ class Lecture extends Model
         $this->attributes['photos'] = $photos;
 
         $this->attributes['date'] = $this->date;
-
-        logger()->info("Final image attribute: " . ($this->attributes['image'] ?? 'NULL'));
-        logger()->info("=== End Debug ===");
     }
 }

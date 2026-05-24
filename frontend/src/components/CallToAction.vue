@@ -3,7 +3,7 @@
     <a :href="url" target="_blank" class="call-to-action-link">
       <q-card class="page-background">
         <q-card-section>
-          <div class="text-h6 text-black" v-html="title"></div>
+          <div class="text-h6 text-black text-bold" v-html="title"></div>
         </q-card-section>
         <q-card-section class="flex justify-end">
           <q-img
