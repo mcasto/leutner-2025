@@ -28,6 +28,7 @@
             class="q-mt-md"
             url="https://www.amazon.com/Race-Consciousness-Personal-Political-Journey-ebook/dp/B0CH42X8D3/ref=sr_1_1?dib=eyJ2IjoiMSJ9.8T9kiJ_SC2ON5Ezh_orjLA.3YxMQ0IlNbrYQSJ_2kieJbx62hM51uwYhizM78e-7oc&dib_tag=se&keywords=carol+leutner&qid=1719664184&sr=8-1"
             title="Race Consciousness: A Personal and Political Journey"
+            cover="cover-image.jpg"
           ></call-to-action>
         </div>
       </div>

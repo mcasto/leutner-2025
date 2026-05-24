@@ -56,6 +56,7 @@
             class="q-mt-md"
             url="https://www.amazon.com/21st-Century-Paradigm-Shift-Thrive-ebook/dp/B0DTZQ5X8B/"
             title="21st Century Pardigm Shift: What It Is and How to Thrive In It"
+            cover="paradigm-audible.png"
           ></call-to-action>
         </div>
       </div>

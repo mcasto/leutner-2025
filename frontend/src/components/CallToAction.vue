@@ -7,7 +7,7 @@
         </q-card-section>
         <q-card-section class="flex justify-end">
           <q-img
-            src="/storage/images/paradigm-audible.png"
+            :src="`/storage/images/${cover}`"
             width="10vw"
             fit="contain"
             class="q-mr-md"
@@ -28,5 +28,5 @@
 import { useStore } from "stores/store";
 const store = useStore();
 
-const props = defineProps(["url", "title"]);
+const props = defineProps(["url", "title", "cover"]);
 </script>
