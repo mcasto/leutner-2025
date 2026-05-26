@@ -72,6 +72,7 @@
           class="q-mt-md"
           title="<ul><li><em class='text-bold'>Race Consciousness: A Personal and Political Journey</em></li><li><em class='text-bold'>21st Century Paradigm Shift: What It Is and How to Thrive In It</em></li></ul>"
           url="https://www.amazon.com/stores/Carol-E.-Leutner/author/B0CGG9JM8N?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+          :covers="['race-consciousness-amazon-award.jpg', 'paradigm-audible.png']"
         ></call-to-action>
       </div>
 
