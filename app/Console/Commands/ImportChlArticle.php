@@ -60,6 +60,7 @@ class ImportChlArticle extends Command
 
             $imgs = $xpath->query('//img');
             foreach ($imgs as $img) {
+                if (!($img instanceof \DOMElement)) continue;
                 $src = $img->getAttribute('src');
                 if (!$src) {
                     $img->parentNode->removeChild($img);
@@ -80,6 +81,7 @@ class ImportChlArticle extends Command
 
             $imgs = $xpath->query('//img');
             foreach ($imgs as $img) {
+                if (!($img instanceof \DOMElement)) continue;
                 $img->parentNode->removeChild($img);
             }
         }
@@ -110,6 +112,7 @@ class ImportChlArticle extends Command
             'date'                => $date,
             'url'                 => $url,
             'sort_order'          => $sortOrder,
+            'thumbnail'           => '',
             'article_category_id' => $categoryId,
             'created_at'          => now(),
             'updated_at'          => now(),

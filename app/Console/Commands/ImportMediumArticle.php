@@ -99,6 +99,7 @@ class ImportMediumArticle extends Command
             'date'                => $date,
             'url'                 => $url,
             'sort_order'          => $sortOrder,
+            'thumbnail'           => '',
             'article_category_id' => $categoryId,
             'created_at'          => now(),
             'updated_at'          => now(),

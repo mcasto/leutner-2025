@@ -70,6 +70,7 @@ class ArticleImportController extends Controller
             'date'                => $validated['date'],
             'url'                 => $validated['url'],
             'sort_order'          => $sortOrder,
+            'thumbnail'           => '',
             'article_category_id' => $validated['category_id'],
             'created_at'          => now(),
             'updated_at'          => now(),
