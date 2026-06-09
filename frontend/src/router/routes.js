@@ -137,6 +137,11 @@ const routes = [
         name: "Contact",
         component: () => import("pages/ContactPage.vue"),
       },
+      {
+        path: "admin/import",
+        name: "Import Article",
+        component: () => import("pages/ImportArticlePage.vue"),
+      },
     ],
   },
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleImportController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LectureController;
 use App\Http\Controllers\NavigationController;
@@ -39,4 +40,10 @@ Route::controller(ReviewController::class)
 Route::controller(ContactController::class)
     ->group(function () {
         Route::post('send-contact', 'store');
+    });
+
+Route::controller(ArticleImportController::class)
+    ->group(function () {
+        Route::get('article-import/setup', 'setup');
+        Route::post('article-import', 'import');
     });
