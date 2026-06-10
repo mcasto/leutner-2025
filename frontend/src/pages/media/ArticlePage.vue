@@ -14,7 +14,7 @@
         {{ store.article.title }}
       </div>
       <div class="text-subtitle1">By {{ store.article.byline }}</div>
-      <div class="text-subtitle2">{{ store.article.date }}</div>
+      <div class="text-subtitle2">{{ date }}</div>
       <div v-if="store.article.url" class="text-overline text-blue">
         <a :href="store.article.url" target="_blank">{{
           store.article.urlLabel
@@ -30,6 +30,12 @@
 
 <script setup>
 // store
+import { format, parseISO } from "date-fns";
 import { useStore } from "stores/store";
+import { computed } from "vue";
 const store = useStore();
+
+const date = computed(() => {
+  return format(parseISO(store.article.date), "PP");
+});
 </script>

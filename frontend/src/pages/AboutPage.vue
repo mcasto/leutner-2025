@@ -78,6 +78,9 @@
           <em>Race Consciousness</em> is her first book.
         </div>
         <div class="q-my-md">
+          Carol relocated to the Washington, D.C. area in 2026.
+        </div>
+        <div class="q-my-md">
           You can contact her <router-link to="/contact">here</router-link>.
         </div>
 
