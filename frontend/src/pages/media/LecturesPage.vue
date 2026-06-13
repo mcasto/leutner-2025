@@ -30,7 +30,7 @@
                 <div class="q-table__grid-item-row">
                   <div class="q-table__grid-item-title">Date</div>
                   <div class="q-table__grid-item-value text-subtitle1">
-                    {{ row.date }}
+                    {{ format(parseISO(row.date), "PP") }}
                   </div>
                 </div>
               </div>
@@ -103,6 +103,7 @@ const store = useStore();
 // components
 import LectureDialog from "src/components/LectureDialog.vue";
 import { ref } from "vue";
+import { format, parseISO } from "date-fns";
 
 const eventImage = ref({
   visible: false,
