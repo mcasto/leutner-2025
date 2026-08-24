@@ -3,7 +3,7 @@ import handleResponse from "./handle-response";
 import { Notify } from "quasar";
 import wretch from "wretch";
 
-export default ({ path, method, payload, useAuth = false }) => {
+export default ({ path, method, payload, useAuth = false, silent = false }) => {
   const store = useStore();
 
   const apiCall = useAuth
@@ -14,6 +14,8 @@ export default ({ path, method, payload, useAuth = false }) => {
     .json()
     .then(handleResponse)
     .catch((message) => {
+      if (silent) throw message;
+
       Notify.create({
         type: "negative",
         message,

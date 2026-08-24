@@ -48,12 +48,24 @@ class Article extends Model
         $filePath = "articles/{$this->_id}.md";
 
         if (!Storage::disk('local')->exists($filePath)) {
-            logger()->error("Article Not Found: {$filePath}");
             $this->attributes['contents'] = null; // Set to null instead of returning array
+
+            // Some articles have no body of their own - their "content" is a
+            // downloadable file (e.g. a PDF) rather than a markdown article,
+            // so there's nothing missing to warn about in that case.
+            if (!$this->linksToDownloadableFile()) {
+                logger()->error("Article Not Found: {$filePath}");
+            }
+
             return;
         }
 
         $this->attributes['contents'] = Storage::disk('local')->get($filePath);
+    }
+
+    protected function linksToDownloadableFile(): bool
+    {
+        return (bool) preg_match('/\.pdf$/i', (string) $this->url);
     }
 
     public function deleteArticleFile()

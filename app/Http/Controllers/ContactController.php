@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactMailer;
 use App\Models\Contact;
+use App\Models\ContactFailure;
 use App\Models\MailchimpResponse;
 use Exception;
 use Illuminate\Http\Request;
@@ -24,10 +25,41 @@ class ContactController extends Controller
         ]);
 
         if ($validator->fails()) {
+            ContactFailure::create([
+                'source' => 'backend',
+                'reason' => $validator->errors()->first() ?: 'Invalid contact information',
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'subject' => $request->input('subject'),
+                'body' => $request->input('body'),
+                'join' => $request->boolean('join'),
+            ]);
+
             return ['status' => 'error', 'message' => 'Invalid contact information'];
         }
 
-        $contact = Contact::create($validator->valid());
+        $data = $validator->valid();
+        $hash = Contact::hashFor($data['email'], $data['subject'], $data['body']);
+
+        $isDuplicate = Contact::where('hash', $hash)
+            ->where('created_at', '>=', now()->subHour())
+            ->exists();
+
+        if ($isDuplicate) {
+            ContactFailure::create([
+                'source' => 'backend',
+                'reason' => 'Duplicate submission',
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'subject' => $data['subject'],
+                'body' => $data['body'],
+                'join' => $data['join'],
+            ]);
+
+            return ['status' => 'error', 'message' => 'This appears to be a duplicate message of one already submitted.'];
+        }
+
+        $contact = Contact::create([...$data, 'hash' => $hash]);
 
         // send email about contact
         try {
@@ -68,7 +100,10 @@ class ContactController extends Controller
                 'response' => $e->getMessage(),
             ]);
 
-            return ['status' => 'error', 'message' => $e->getMessage()];
+            // Mailchimp is a secondary integration - the contact is already
+            // saved and the notification email already sent, so a Mailchimp
+            // failure shouldn't be surfaced to the person submitting the form.
+            return ['status' => 'ok'];
         }
     }
 }

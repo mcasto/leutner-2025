@@ -9,6 +9,7 @@
           filled
           color="black"
           :rules="[rules.required]"
+          lazy-rules="ondemand"
         ></q-input>
         <q-input
           type="email"
@@ -17,6 +18,7 @@
           filled
           color="black"
           :rules="[rules.required, rules.email]"
+          lazy-rules="ondemand"
         ></q-input>
         <q-input
           type="text"
@@ -25,6 +27,7 @@
           filled
           color="black"
           :rules="[rules.special]"
+          lazy-rules="ondemand"
         ></q-input>
         <q-input
           type="textarea"
@@ -33,6 +36,7 @@
           filled
           color="black"
           :rules="[rules.special]"
+          lazy-rules="ondemand"
         ></q-input>
 
         <div class="flex justify-between">
@@ -46,6 +50,8 @@
             label="Submit"
             color="primary"
             class="text-black"
+            :loading="loading"
+            :disable="loading"
             @click="sendContact"
           ></q-btn>
         </div>
@@ -59,7 +65,7 @@
   const store = useStore();
 
   import { ref } from "vue";
-  import validator from "email-validator";
+  import contactRules from "src/assets/contact-rules";
 
   const contact = ref({
     name: null,
@@ -70,15 +76,21 @@
   });
 
   const contactForm = ref(null);
+  const loading = ref(false);
 
   const rules = {
-    required: (v) => !!v || "Required",
-    email: (v) => validator.validate(v) || "Invalid Email",
-    special: (v) =>
-      contact.value.join || !!v || "Required if not joining mailing list",
+    required: contactRules.required,
+    email: contactRules.email,
+    special: (v) => contactRules.requiredUnlessJoining(v, contact.value.join),
   };
 
-  const sendContact = () => {
-    store.sendContact(contactForm.value, contact.value);
+  const sendContact = async () => {
+    loading.value = true;
+
+    try {
+      await store.sendContact(contactForm.value, contact.value);
+    } finally {
+      loading.value = false;
+    }
   };
 </script>
