@@ -15,7 +15,6 @@
     "laravel/sanctum": "^4.0",
     "laravel/tinker": "^2.10.1",
     "league/html-to-markdown": "^5.1",
-    "mailchimp/marketing": "^3.0",
     "mailersend/laravel-driver": "^2.12"
   },
   "require-dev": {

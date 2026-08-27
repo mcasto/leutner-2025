@@ -26,7 +26,7 @@
           v-model="contact.subject"
           filled
           color="black"
-          :rules="[rules.special]"
+          :rules="[rules.required]"
           lazy-rules="ondemand"
         ></q-input>
         <q-input
@@ -35,17 +35,11 @@
           v-model="contact.body"
           filled
           color="black"
-          :rules="[rules.special]"
+          :rules="[rules.required]"
           lazy-rules="ondemand"
         ></q-input>
 
-        <div class="flex justify-between">
-          <q-checkbox
-            label="Join Mailing List"
-            v-model="contact.join"
-            color="black"
-          ></q-checkbox>
-
+        <div class="flex justify-end">
           <q-btn
             label="Submit"
             color="primary"
@@ -72,7 +66,6 @@
     email: null,
     subject: null,
     body: null,
-    join: false,
   });
 
   const contactForm = ref(null);
@@ -81,7 +74,6 @@
   const rules = {
     required: contactRules.required,
     email: contactRules.email,
-    special: (v) => contactRules.requiredUnlessJoining(v, contact.value.join),
   };
 
   const sendContact = async () => {

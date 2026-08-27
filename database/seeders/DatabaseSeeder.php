@@ -7,7 +7,6 @@ use App\Models\ArticleCategory;
 use App\Models\Contact;
 use App\Models\Gallery;
 use App\Models\Lecture;
-use App\Models\MailchimpResponse;
 use App\Models\Navigation;
 use App\Models\Photo;
 use App\Models\PressRelease;
@@ -31,7 +30,6 @@ class DatabaseSeeder extends Seeder
             'contacts' => Contact::class,
             'galleries' => Gallery::class,
             'lectures' => Lecture::class,
-            'mailchimp_responses' => MailchimpResponse::class,
             'navigation' => Navigation::class,
             'photos' => Photo::class,
             'press_releases' => PressRelease::class,

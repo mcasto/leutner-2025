@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Mail\ContactMailer;
 use App\Models\Contact;
 use App\Models\ContactFailure;
-use App\Models\MailchimpResponse;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use MailchimpMarketing\ApiClient;
 
 class ContactController extends Controller
 {
@@ -21,7 +19,6 @@ class ContactController extends Controller
             'email' => 'email|required',
             'subject' => 'string|required',
             'body' => 'string|required',
-            'join' => 'boolean|required'
         ]);
 
         if ($validator->fails()) {
@@ -32,7 +29,6 @@ class ContactController extends Controller
                 'email' => $request->input('email'),
                 'subject' => $request->input('subject'),
                 'body' => $request->input('body'),
-                'join' => $request->boolean('join'),
             ]);
 
             return ['status' => 'error', 'message' => 'Invalid contact information'];
@@ -53,7 +49,6 @@ class ContactController extends Controller
                 'email' => $data['email'],
                 'subject' => $data['subject'],
                 'body' => $data['body'],
-                'join' => $data['join'],
             ]);
 
             return ['status' => 'error', 'message' => 'This appears to be a duplicate message of one already submitted.'];
@@ -70,40 +65,6 @@ class ContactController extends Controller
             return ['status' => 'error', 'message' => 'Unable to send contact email'];
         }
 
-        $status = $contact->join ? 'subscribed' : 'unsubscribed';
-
-        $client = new ApiClient();
-
-        $client->setConfig([
-            'apiKey' => config('app.mailchimp.key'),
-            'server' => config('app.mailchimp.server')
-        ]);
-
-        $subscriberHash = md5(strtolower($contact->email));
-
-        try {
-            $response = $client->lists->setListMember(config('app.mailchimp.list_id'), $subscriberHash, [
-                'email_address' => $contact->email,
-                'status_if_new' => $status, // or 'pending' for double opt-in
-                'status' => $status, // Update existing member status
-            ]);
-
-            MailchimpResponse::create([
-                'submitted_info' => $contact->toArray(),
-                'response' => $response,
-            ]);
-
-            return ['status' => 'ok'];
-        } catch (Exception $e) {
-            MailchimpResponse::create([
-                'submitted_info' => $contact->toArray(),
-                'response' => $e->getMessage(),
-            ]);
-
-            // Mailchimp is a secondary integration - the contact is already
-            // saved and the notification email already sent, so a Mailchimp
-            // failure shouldn't be surfaced to the person submitting the form.
-            return ['status' => 'ok'];
-        }
+        return ['status' => 'ok'];
     }
 }

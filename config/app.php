@@ -122,11 +122,4 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-
-
-    'mailchimp' => [
-        'key' => env('MAILCHIMP_KEY'),
-        'server' => env('MAILCHIMP_SERVER'),
-        'list_id' => env('MAILCHIMP_LIST_ID')
-    ]
 ];

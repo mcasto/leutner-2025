@@ -73,7 +73,6 @@ export default async (form, contact) => {
       email: null,
       subject: null,
       body: null,
-      join: false,
     });
   } catch (message) {
     const reason =

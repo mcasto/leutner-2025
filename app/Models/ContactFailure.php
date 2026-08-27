@@ -13,6 +13,5 @@ class ContactFailure extends Model
         'email',
         'subject',
         'body',
-        'join',
     ];
 }

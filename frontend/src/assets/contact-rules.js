@@ -4,10 +4,7 @@ const required = (v) => (!!v ? true : "Required");
 
 const email = (v) => (validator.validate(v) ? true : "Invalid Email");
 
-const requiredUnlessJoining = (v, join) =>
-  join || !!v ? true : "Required if not joining mailing list";
-
-export default { required, email, requiredUnlessJoining };
+export default { required, email };
 
 export const reasonsForFailure = (contact) => {
   const reasons = [];
@@ -23,10 +20,10 @@ export const reasonsForFailure = (contact) => {
     if (emailCheck !== true) reasons.push(`Email: ${emailCheck}`);
   }
 
-  const subjectCheck = requiredUnlessJoining(contact.subject, contact.join);
+  const subjectCheck = required(contact.subject);
   if (subjectCheck !== true) reasons.push(`Subject: ${subjectCheck}`);
 
-  const bodyCheck = requiredUnlessJoining(contact.body, contact.join);
+  const bodyCheck = required(contact.body);
   if (bodyCheck !== true) reasons.push(`Message: ${bodyCheck}`);
 
   return reasons;

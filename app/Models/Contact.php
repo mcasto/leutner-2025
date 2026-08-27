@@ -11,7 +11,6 @@ class Contact extends Model
         'email',
         'subject',
         'body',
-        'join',
         'hash',
     ];
 

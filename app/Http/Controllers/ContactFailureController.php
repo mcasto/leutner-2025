@@ -16,7 +16,6 @@ class ContactFailureController extends Controller
             'email' => $request->input('email'),
             'subject' => $request->input('subject'),
             'body' => $request->input('body'),
-            'join' => $request->boolean('join'),
         ]);
 
         return ['status' => 'ok'];
