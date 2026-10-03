@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleImportController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactFailureController;
 use App\Http\Controllers\LectureController;
@@ -48,8 +49,17 @@ Route::controller(ContactFailureController::class)
         Route::post('contact-failure', 'store');
     });
 
+Route::post('login', [AuthController::class, 'login'])->middleware('throttle:5,1');
+
+Route::middleware('auth:sanctum')
+    ->group(function () {
+        Route::post('logout', [AuthController::class, 'logout']);
+    });
+
 Route::controller(ArticleImportController::class)
+    ->middleware('auth:sanctum')
     ->group(function () {
         Route::get('article-import/setup', 'setup');
         Route::post('article-import', 'import');
+        Route::put('article-import/{id}', 'update');
     });

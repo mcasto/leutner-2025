@@ -13,12 +13,8 @@ use League\HTMLToMarkdown\HtmlConverter;
 
 class ArticleImportController extends Controller
 {
-    public function setup(Request $request): JsonResponse
+    public function setup(): JsonResponse
     {
-        if (!$this->authorized($request)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
         return response()->json([
             'categories' => DB::table('article_categories')->orderBy('sort_order')->get(),
         ]);
@@ -26,10 +22,6 @@ class ArticleImportController extends Controller
 
     public function import(Request $request): JsonResponse
     {
-        if (!$this->authorized($request)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
         $validated = $request->validate([
             'type'        => 'required|in:medium,chl',
             'file'        => 'required|file',
@@ -78,7 +70,34 @@ class ArticleImportController extends Controller
 
         Cache::forget('leutner-articles-indes');
 
-        return response()->json(['message' => "Article '{$validated['id']}' imported successfully."]);
+        return response()->json([
+            'message'  => "Article '{$validated['id']}' imported successfully.",
+            'id'       => $validated['id'],
+            'markdown' => $markdown,
+        ]);
+    }
+
+    public function update(Request $request, string $id): JsonResponse
+    {
+        $validated = $request->validate([
+            'html' => 'required|string',
+        ]);
+
+        if (!DB::table('articles')->where('_id', $id)->exists()) {
+            return response()->json(['error' => "No article with ID '{$id}' exists."], 404);
+        }
+
+        $markdown = (new HtmlConverter(['strip_tags' => false]))->convert($validated['html']);
+
+        Storage::disk('local')->put("articles/{$id}.md", $markdown);
+
+        Cache::forget('leutner-articles-indes');
+        Cache::forget("leutner-article-{$id}");
+
+        return response()->json([
+            'message'  => "Article '{$id}' saved successfully.",
+            'markdown' => $markdown,
+        ]);
     }
 
     private function parseMedium(DOMDocument $dom, DOMXPath $xpath): ?string
@@ -130,11 +149,5 @@ class ArticleImportController extends Controller
         }
 
         return empty($paras) ? null : (new HtmlConverter(['strip_tags' => false]))->convert(implode('', $paras));
-    }
-
-    private function authorized(Request $request): bool
-    {
-        return $request->header('X-Admin-Email') === env('ARTICLE_ADMIN_EMAIL')
-            && $request->header('X-Admin-Password') === env('ARTICLE_ADMIN_PASSWORD');
     }
 }

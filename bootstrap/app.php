@@ -12,8 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // There's no named "login" route; the SPA's login lives on the import page
+        $middleware->redirectGuestsTo('/admin/import');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // API errors (e.g. unauthenticated) should be JSON, not a redirect to a login page
+        $exceptions->shouldRenderJsonWhen(fn ($request) => $request->is('api/*') || $request->expectsJson());
     })->create();
